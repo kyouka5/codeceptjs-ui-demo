@@ -30,7 +30,7 @@ jobs:
           name: smoke-test-report
           path: "**/output/test-report.xml"
       - name: Publish smoke report
-        uses: mikepenz/action-junit-report@v2
+        uses: mikepenz/action-junit-report@v3
         if: always()
         with:
           report_paths: "output/test-report.xml"
@@ -45,7 +45,7 @@ jobs:
           name: regression-test-report
           path: "**/output/test-report.xml"
       - name: Publish regression report
-        uses: mikepenz/action-junit-report@v2
+        uses: mikepenz/action-junit-report@v3
         if: always()
         with:
           report_paths: "**/output/test-report.xml"

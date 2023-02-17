@@ -22,7 +22,7 @@ jobs:
         run: npm install
       - name: Run smoke tests
         run: |
-          npx codeceptjs run --grep "@smoke" --override '{"helpers": {"Playwright": {"show": false}}} --reporter mocha-junit-reporter'
+          npx codeceptjs run --grep "@smoke" --override '{"helpers": {"Playwright": {"show": false}}}' --reporter mocha-junit-reporter
       - name: "Upload smoke test report artifact"
         uses: actions/upload-artifact@v3
         if: always()
@@ -37,7 +37,7 @@ jobs:
       - name: Run regression tests
         if: always()
         run: |
-          npx codeceptjs run --grep "@regression" --override '{"helpers": {"Playwright": {"show": false}}} --reporter mocha-junit-reporter'
+          npx codeceptjs run --grep "@regression" --override '{"helpers": {"Playwright": {"show": false}}}' --reporter mocha-junit-reporter
       - name: "Upload regression test report artifact"
         uses: actions/upload-artifact@v3
         if: always()

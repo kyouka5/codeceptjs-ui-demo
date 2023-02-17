@@ -2,6 +2,9 @@ name: Test execution
 
 on: [ push, pull_request, workflow_dispatch ]
 
+permissions:
+  checks: write
+
 jobs:
   build:
 
@@ -34,6 +37,7 @@ jobs:
         if: always()
         with:
           report_paths: "output/test-report.xml"
+          summary: "Smoke tests"
       - name: Run regression tests
         if: always()
         run: |
@@ -49,3 +53,4 @@ jobs:
         if: always()
         with:
           report_paths: "**/output/test-report.xml"
+          summary: "Regression tests"

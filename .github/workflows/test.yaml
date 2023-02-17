@@ -27,7 +27,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: smoke-test-report
-          path: "output/test-report.xml"
+          path: "**/output/test-report.xml"
       - name: Publish smoke report
         uses: mikepenz/action-junit-report@v2
         if: always()
@@ -40,7 +40,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: regression-test-report
-          path: "output/test-report.xml"
+          path: "**/output/test-report.xml"
       - name: Publish regression report
         uses: mikepenz/action-junit-report@v2
         if: always()

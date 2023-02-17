@@ -36,7 +36,7 @@ jobs:
         uses: dorny/test-reporter@v1
         if: always()
         with:
-          artifact: smoke-report
+          artifact: smoke-test-report
           name: Smoke tests
           path: "**/output/test-report.xml"
           reporter: java-junit
@@ -54,7 +54,7 @@ jobs:
         uses: dorny/test-reporter@v1
         if: always()
         with:
-          artifact: regression-report
+          artifact: regression-test-report
           name: Regression tests
           path: "**/output/test-report.xml"
           reporter: java-junit

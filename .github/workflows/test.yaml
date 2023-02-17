@@ -1,0 +1,46 @@
+name: Test execution
+
+on: [ push, pull_request, workflow_dispatch ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 16.x ]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install project
+        run: npm install
+      - name: Run smoke tests
+        run: npx codeceptjs run --grep "@smoke"
+      - name: "Upload smoke test report artifact"
+        uses: actions/upload-artifact@v3
+        with:
+          name: smoke-test-report
+          path: "output/test-report.xml"
+      - name: Publish smoke report
+        uses: mikepenz/action-junit-report@v2
+        if: always()
+        with:
+          report_paths: '**/output/test-report.xml'
+      - name: Run regression tests
+        run: npx codeceptjs run --grep "@regression"
+      - name: "Upload regression test report artifact"
+        uses: actions/upload-artifact@v3
+        with:
+          name: regression-test-report
+          path: "output/test-report.xml"
+      - name: Publish regression report
+        uses: mikepenz/action-junit-report@v2
+        if: always()
+        with:
+          report_paths: '**/output/test-report.xml'

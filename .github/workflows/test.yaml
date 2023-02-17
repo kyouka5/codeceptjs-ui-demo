@@ -38,6 +38,7 @@ jobs:
         with:
           report_paths: "output/test-report.xml"
           summary: "Smoke tests"
+          detailed_summary: true
       - name: Run regression tests
         if: always()
         run: |
@@ -54,3 +55,4 @@ jobs:
         with:
           report_paths: "**/output/test-report.xml"
           summary: "Regression tests"
+          detailed_summary: true

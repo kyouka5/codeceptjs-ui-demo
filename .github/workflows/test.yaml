@@ -33,12 +33,13 @@ jobs:
           name: smoke-test-report
           path: "**/output/test-report.xml"
       - name: Publish smoke report
-        uses: mikepenz/action-junit-report@v3
+        uses: dorny/test-reporter@v1
         if: always()
         with:
-          report_paths: "output/test-report.xml"
-          summary: "Smoke tests"
-          detailed_summary: true
+          artifact: smoke-report
+          name: Smoke tests
+          path: "**/output/test-report.xml"
+          reporter: java-junit
       - name: Run regression tests
         if: always()
         run: |
@@ -50,9 +51,10 @@ jobs:
           name: regression-test-report
           path: "**/output/test-report.xml"
       - name: Publish regression report
-        uses: mikepenz/action-junit-report@v3
+        uses: dorny/test-reporter@v1
         if: always()
         with:
-          report_paths: "**/output/test-report.xml"
-          summary: "Regression tests"
-          detailed_summary: true
+          artifact: regression-report
+          name: Regression tests
+          path: "**/output/test-report.xml"
+          reporter: java-junit

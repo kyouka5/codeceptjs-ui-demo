@@ -33,6 +33,9 @@ exports.config = {
   plugins: {
     screenshotOnFail: {
       enabled: true
+    },
+    retryFailedStep: {
+      enabled: true
     }
   },
   stepTimeout: 0,

@@ -19,7 +19,7 @@ exports.config = {
   },
   mocha: {
     reporterOptions: {
-      mochaFile: './output/test-report.xml'
+      mochaFile: 'output/test-report.xml'
     }
   },
   bootstrap: null,

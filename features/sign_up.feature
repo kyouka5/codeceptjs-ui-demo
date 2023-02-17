@@ -30,9 +30,9 @@ Feature: Sign up
     And The text of "Email field validation error" should be "<validation_error>"
 
     Examples:
-      | email                   | validation_error                   |
-      | simple_text             | Email is invalid or already taken  |
-      | invalid@emaildomain.com | Email domain could not be verified |
+      | email            | validation_error                   |
+      | simple_text      | Email is invalid or already taken  |
+      | invalid@test.com | Email domain could not be verified |
 
   @regression @id(TC-6)
   Scenario: Email field validation - valid case

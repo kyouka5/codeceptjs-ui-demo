@@ -21,7 +21,8 @@ jobs:
       - name: Install project
         run: npm install
       - name: Run smoke tests
-        run: npx codeceptjs run --grep "@smoke"
+        run: |
+          npx codeceptjs run --grep "@smoke" --override '{"helpers": {"Playwright": {"show": false}}}'
       - name: "Upload smoke test report artifact"
         uses: actions/upload-artifact@v3
         with:
@@ -31,9 +32,10 @@ jobs:
         uses: mikepenz/action-junit-report@v2
         if: always()
         with:
-          report_paths: '**/output/test-report.xml'
+          report_paths: "output/test-report.xml"
       - name: Run regression tests
-        run: npx codeceptjs run --grep "@regression"
+        run: |
+          npx codeceptjs run --grep "@regression" --override '{"helpers": {"Playwright": {"show": false}}}'
       - name: "Upload regression test report artifact"
         uses: actions/upload-artifact@v3
         with:
@@ -43,4 +45,4 @@ jobs:
         uses: mikepenz/action-junit-report@v2
         if: always()
         with:
-          report_paths: '**/output/test-report.xml'
+          report_paths: "**/output/test-report.xml"

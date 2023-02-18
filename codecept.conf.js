@@ -1,9 +1,6 @@
 exports.config = {
-    output: './allure-report',
+    output: './output',
     helpers: {
-        AssertWrapper: {
-            require: "codeceptjs-assert"
-        },
         Playwright: {
             url: 'https://github.com',
             show: true,

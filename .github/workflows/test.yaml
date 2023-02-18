@@ -26,10 +26,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Setup JDK ${{ matrix.java-version }}
-          uses: actions/setup-java@v3
-          with:
-            java-version: ${{ matrix.java-version }}
-            distribution: 'temurin'
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ matrix.java-version }}
+          distribution: 'temurin'
 
       - name: Install Allure
         run: npm install -g allure-commandline --save-dev

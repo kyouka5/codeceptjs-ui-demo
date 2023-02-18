@@ -1,5 +1,5 @@
 exports.config = {
-    output: './allure-results',
+    output: './allure-report',
     helpers: {
         AssertWrapper: {
             require: "codeceptjs-assert"

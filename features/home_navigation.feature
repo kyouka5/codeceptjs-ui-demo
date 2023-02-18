@@ -9,7 +9,7 @@ Feature: Home navigation
 
   @smoke @id(TC-1)
   Scenario: Header elements visibility
-    Then The number of "Header menu items" should be 4
+    And The number of "Header menu items" should be 4
     And The text of the 1st of "Header menu items" should be "Product"
     And The text of the 2nd of "Header menu items" should be "Solutions"
     And The text of the 3rd of "Header menu items" should be "Open Source"

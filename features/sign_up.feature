@@ -9,11 +9,11 @@ Feature: Sign up
 
   @smoke @id(TC-3)
   Scenario: Sign up page elements visibility
-    Then "Continue button" should be visible
+    And "Continue button" should be visible
 
   @smoke @id(TC-4)
   Scenario: Continue button is disabled by default
-    Then "Continue button" should be disabled
+    And "Continue button" should be disabled
 
 #  teeest@test.com - invalid domain
 #  invalid@email - invalid or taken

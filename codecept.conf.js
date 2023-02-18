@@ -28,7 +28,10 @@ exports.config = {
         steps: ['./step_definitions/steps.js']
     },
     plugins: {
-        allure: {},
+        allure: {
+            enabled: true,
+            require: '@codeceptjs/allure-legacy',
+        },
         retryFailedStep: {
             enabled: true,
             defaultIgnoredSteps: [],

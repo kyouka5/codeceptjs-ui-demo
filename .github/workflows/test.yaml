@@ -24,9 +24,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install Allure
-        run: npm install -g allure-commandline --save-dev
-
       - name: Install project
         run: npm install
 

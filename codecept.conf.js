@@ -14,11 +14,6 @@ exports.config = {
         homePage: './pages/home.js',
         constants: './constants.js'
     },
-    mocha: {
-        reporterOptions: {
-            mochaFile: 'output/test-report.xml'
-        }
-    },
     bootstrap: null,
     timeout: null,
     teardown: null,
@@ -48,5 +43,5 @@ exports.config = {
         }
     ],
     tests: './test/*_test.js',
-    name: 'github-ui-demo'
+    name: 'codeceptjs-ui-demo'
 }

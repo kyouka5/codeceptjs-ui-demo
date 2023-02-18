@@ -14,15 +14,25 @@ jobs:
     strategy:
       matrix:
         node-version: [ 16.x ]
+        java-version: [ 17 ]
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: Setup JDK ${{ matrix.java-version }}
+          uses: actions/setup-java@v3
+          with:
+            java-version: ${{ matrix.java-version }}
+            distribution: 'temurin'
+
+      - name: Install Allure
+        run: npm install -g allure-commandline --save-dev
 
       - name: Install project
         run: npm install

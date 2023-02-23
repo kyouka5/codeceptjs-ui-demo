@@ -7,7 +7,7 @@ Feature: Home navigation
     Given I open "Home" page
     Then "Header" should be visible
 
-  @smoke @id(TC-1)
+  @id(TC-1) @smoke
   Scenario: Header elements visibility
     And The number of "Header menu items" should be 4
     And The text of the 1st of "Header menu items" should be "Product"
@@ -15,7 +15,7 @@ Feature: Home navigation
     And The text of the 3rd of "Header menu items" should be "Open Source"
     And The text of the 4th of "Header menu items" should be "Pricing"
 
-  @smoke @id(TC-2)
+  @id(TC-2) @smoke
   Scenario: Sign up button navigates to Sign up page
     When I click "Sign up button"
     Then I should be on "Sign up" page

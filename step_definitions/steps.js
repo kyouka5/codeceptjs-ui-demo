@@ -9,34 +9,34 @@ Given(/^I open "(.*)" page$/, page => {
 });
 
 When(/^I click (?:on )?"(.*)"$/, element => {
-    I.click(currentPage.elements[element]);
+    I.click(currentPage.getLocator(element));
 });
 
 When(/^I type "(.*)" into "(.*)"$/, (text, element) => {
-    I.fillField(currentPage.elements[element], text);
+    I.fillField(currentPage.getLocator(element), text);
+});
+
+When(/^I clear "(.*)"$/, (element) => {
+    I.clearField(currentPage.getLocator(element));
 });
 
 Then(/^(Eventually )?"(.*)" should (not )?be visible$/, (wait, element, notVisible) => {
     if (wait) {
-        I.waitForVisible(currentPage.elements[element], constants.ELEMENT_LOADING_TIMEOUT);
+        I.waitForVisible(currentPage.getLocator(element), constants.ELEMENT_LOADING_TIMEOUT);
     }
-    if (notVisible) {
-        I.dontSeeElement(currentPage.elements[element]);
-    } else {
-        I.seeElement(currentPage.elements[element]);
-    }
+    notVisible ? I.dontSeeElement(currentPage.getLocator(element)) : I.seeElement(currentPage.getLocator(element));
 });
 
 Then(/^The number of "(.*)" should be (.*)$/, (elementCollection, count) => {
-    I.seeNumberOfElements(currentPage.elements[elementCollection], +count);
+    I.seeNumberOfElements(currentPage.getLocator(elementCollection), +count);
 });
 
 Then(/^The text of "(.*)" should be "(.*)"$/, (element, text) => {
-    I.seeTextEquals(text, currentPage.elements[element]);
+    I.seeTextEquals(text, currentPage.getLocator(element));
 });
 
 Then(/^The text of the (.*)(?:st|nd|rd|th) of "(.*)" should be "(.*)"$/, async (index, elementCollection, text) => {
-    const actualTexts = await I.grabTextFromAll(currentPage.elements[elementCollection]);
+    const actualTexts = await I.grabTextFromAll(currentPage.getLocator(elementCollection));
     assert.strictEqual(actualTexts[index - 1], text);
 });
 
@@ -48,6 +48,6 @@ Then(/^I should be on "(.*)" page$/, page => {
 Then(/^"(.*)" should be (disabled|enabled)$/, async (element, state) => {
     const DISABLED_ATTRIBUTE = "disabled";
     const isDisabled = state === DISABLED_ATTRIBUTE;
-    const actualState = await I.grabAttributeFrom(currentPage.elements[element], DISABLED_ATTRIBUTE);
+    const actualState = await I.grabAttributeFrom(currentPage.getLocator(element), DISABLED_ATTRIBUTE);
     assert.strictEqual(actualState, isDisabled);
 });

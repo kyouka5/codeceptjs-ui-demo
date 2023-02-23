@@ -1,5 +1,9 @@
-class Home {
+const BasePage = require("./basePage");
+
+class HomePage extends BasePage {
     constructor() {
+        super();
+        this.name = "Home";
         this.url = "/";
         this.elements = {
             "Header": ".header-logged-out",
@@ -8,8 +12,8 @@ class Home {
             "Search bar": "form.js-site-search-form",
             "Sign in button": "a.HeaderMenu-link--sign-in",
             "Sign up button": "a.HeaderMenu-link--sign-up"
-        }
+        };
     }
 }
 
-module.exports = new Home();
+module.exports = new HomePage();

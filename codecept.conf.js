@@ -10,8 +10,8 @@ exports.config = {
     },
     include: {
         I: './steps_file.js',
-        pages: './pages/pages.js',
-        homePage: './pages/home.js',
+        pages: './page_objects/pages.js',
+        homePage: './page_objects/pages/homePage.js',
         constants: './constants.js'
     },
     bootstrap: null,

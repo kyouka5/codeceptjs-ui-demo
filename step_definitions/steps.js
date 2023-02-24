@@ -18,13 +18,15 @@ When(/^I type "(.*)" into "(.*)"$/, (text, element) => {
 
 When(/^I clear "(.*)"$/, (element) => {
     I.clearField(currentPage.getLocator(element));
+    I.pressKey("Backspace");
 });
 
-Then(/^(Eventually )?"(.*)" should (not )?be visible$/, (wait, element, notVisible) => {
-    if (wait) {
+Then(/^"(.*)" should (not )?be visible$/, (element, notVisible) => {
+    if (notVisible) {
+        I.waitForInvisible(currentPage.getLocator(element), constants.ELEMENT_LOADING_TIMEOUT);
+    } else {
         I.waitForVisible(currentPage.getLocator(element), constants.ELEMENT_LOADING_TIMEOUT);
     }
-    notVisible ? I.dontSeeElement(currentPage.getLocator(element)) : I.seeElement(currentPage.getLocator(element));
 });
 
 Then(/^The number of "(.*)" should be (.*)$/, (elementCollection, count) => {

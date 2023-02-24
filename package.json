@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "codeceptjs": "codeceptjs run --steps --reporter mocha-junit-reporter --verbose",
-    "codeceptjs:headless": "HEADLESS=true codeceptjs run --steps --reporter mocha-junit-reporter",
-    "codeceptjs:ui": "codecept-ui --app --steps --reporter mocha-junit-reporter",
+    "codeceptjs": "codeceptjs run --steps --verbose",
+    "codeceptjs:current": "codeceptjs run --steps --verbose --grep \"current\"",
+    "codeceptjs:headless": "HEADLESS=true codeceptjs run --steps",
+    "codeceptjs:ui": "codecept-ui --app --steps",
     "codeceptjs:demo": "codeceptjs run --steps -c node_modules/@codeceptjs/examples",
     "codeceptjs:demo:headless": "HEADLESS=true codeceptjs run --steps -c node_modules/@codeceptjs/examples",
     "codeceptjs:demo:ui": "codecept-ui --app  -c node_modules/@codeceptjs/examples"

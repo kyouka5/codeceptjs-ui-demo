@@ -7,9 +7,9 @@ class SignUpPage extends BasePage {
         this.url = "/signup";
         this.elements = {
             "Email field": "input#email",
-            "Continue button": "button.signup-continue-button",
+            "Continue button": "#email-container button.signup-continue-button",
             "Email field validation error": "#email-err>p:first-child",
-            "Domain suggestion": "#email-err>[data-target=\"text-suggester.suggestionContainer\"]"
+            "Domain suggestion": "#email-err>[data-target='text-suggester.suggestionContainer']"
         };
     }
 }

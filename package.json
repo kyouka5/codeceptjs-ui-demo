@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "codeceptjs": "codeceptjs run --steps --verbose",
-    "codeceptjs:current": "codeceptjs run --steps --verbose --grep \"current\"",
+    "codeceptjs:current": "codeceptjs run --steps --verbose --grep \"current\" --plugins stepTimeout",
     "codeceptjs:headless": "HEADLESS=true codeceptjs run --steps",
     "codeceptjs:ui": "codecept-ui --app --steps",
     "codeceptjs:demo": "codeceptjs run --steps -c node_modules/@codeceptjs/examples",

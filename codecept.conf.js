@@ -12,10 +12,10 @@ exports.config = {
         I: './steps_file.js',
         pages: './page_objects/pages.js',
         homePage: './page_objects/pages/homePage.js',
-        constants: './constants.js'
+        timeouts: './timeouts.js'
     },
     bootstrap: null,
-    timeout: null,
+    timeout: 15,
     teardown: null,
     hooks: [],
     gherkin: {
@@ -30,18 +30,8 @@ exports.config = {
         retryFailedStep: {
             enabled: true,
             defaultIgnoredSteps: [],
-        },
-    },
-    stepTimeout: 0,
-    stepTimeoutOverride: [{
-        pattern: 'wait.*',
-        timeout: 0
-    },
-        {
-            pattern: 'amOnPage',
-            timeout: 0
         }
-    ],
+    },
     tests: './test/*_test.js',
     name: 'codeceptjs-ui-demo'
 }

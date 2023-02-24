@@ -1,5 +1,5 @@
 const assert = require('assert');
-const {I, pages, constants} = inject();
+const {I, pages, timeouts} = inject();
 
 let currentPage;
 
@@ -23,9 +23,9 @@ When(/^I clear "(.*)"$/, (element) => {
 
 Then(/^"(.*)" should (not )?be visible$/, (element, notVisible) => {
     if (notVisible) {
-        I.waitForInvisible(currentPage.getLocator(element), constants.ELEMENT_LOADING_TIMEOUT);
+        I.waitForInvisible(currentPage.getLocator(element), timeouts.ELEMENT_LOADING_TIMEOUT);
     } else {
-        I.waitForVisible(currentPage.getLocator(element), constants.ELEMENT_LOADING_TIMEOUT);
+        I.waitForVisible(currentPage.getLocator(element), timeouts.ELEMENT_LOADING_TIMEOUT);
     }
 });
 
@@ -43,13 +43,15 @@ Then(/^The text of the (.*)(?:st|nd|rd|th) of "(.*)" should be "(.*)"$/, async (
 });
 
 Then(/^I should be on "(.*)" page$/, page => {
-    I.waitUrlEquals(pages[page].url, constants.ELEMENT_LOADING_TIMEOUT);
+    I.waitUrlEquals(pages[page].url, timeouts.ELEMENT_LOADING_TIMEOUT);
     currentPage = pages[page];
 });
 
-Then(/^"(.*)" should be (disabled|enabled)$/, async (element, state) => {
-    const DISABLED_ATTRIBUTE = "disabled";
-    const isDisabled = state === DISABLED_ATTRIBUTE;
-    const actualState = await I.grabAttributeFrom(currentPage.getLocator(element), DISABLED_ATTRIBUTE);
-    assert.strictEqual(actualState, isDisabled);
+// TODO: Right now, this step only works with CSS selectors. Figure out a solution to be able to handle XPath as well
+Then(/^"(.*)" should be (disabled|enabled)$/, (element, actualState) => {
+    const states = {
+        disabled: "[disabled]",
+        enabled: ":not([disabled])"
+    };
+    I.waitForVisible(`${currentPage.getLocator(element)}${states[actualState]}`, timeouts.ELEMENT_LOADING_TIMEOUT);
 });

@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"acb461a6329dd702ce113a5a1d00155f","name":"Sign up @jira(ISG-2)","statistic":{"failed":11,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":13}},{"uid":"845a82e307880bb24eeb6c6de024e236","name":"Home navigation @jira(ISG-1)","statistic":{"failed":1,"broken":0,"skipped":0,"passed":3,"unknown":0,"total":4}}]}

@@ -6,11 +6,14 @@ Feature: Sign up
 
   Background:
     Given I open "Sign up" page
-    Then "Email field" should be visible
 
   @id(TC-4) @smoke
   Scenario: Sign up page elements visibility
+    Then "Email field" should be visible
+    And "Email label" should be visible
+    And The text of "Email label" should be "Enter your email"
     And "Continue button" should be visible
+    And The text of "Continue button" should be "Continue"
 
   @id(TC-5) @smoke
   Scenario: Continue button is disabled by default

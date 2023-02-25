@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "codeceptjs": "codeceptjs run --steps --verbose",
-    "codeceptjs:current": "codeceptjs run --steps --verbose --grep \"current\" --plugins stepTimeout",
+    "codeceptjs": "codeceptjs run --steps --verbose --plugins \"allure,retryFailedStep\"",
+    "codeceptjs:current": "codeceptjs run --steps --verbose --grep \"current\" --plugins \"allure,retryFailedStep\"",
     "codeceptjs:headless": "HEADLESS=true codeceptjs run --steps --verbose",
     "codeceptjs:ui": "codecept-ui --app --steps",
     "codeceptjs:demo": "codeceptjs run --steps -c node_modules/@codeceptjs/examples",

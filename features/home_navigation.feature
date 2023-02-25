@@ -26,7 +26,7 @@ Feature: Home navigation
 
   @id(TC-3) @smoke
   Scenario Outline: <navigation_element> navigates to the <navigated_to> page
-    When I click "navigation_element"
+    When I click "<navigation_element>"
     Then I should be on "<navigated_to>" page
 
     Examples:

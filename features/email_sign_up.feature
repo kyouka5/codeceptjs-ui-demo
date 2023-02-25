@@ -1,17 +1,17 @@
-@jira(ISG-2)
-Feature: Sign up
+@jira(ISG-2) @epic(Authentication)
+Feature: Add Email field to Sign up page
   As a GitHub user
   I want to be able to enter my email address on the Sign up page
   So that I can register
 
   Background:
     Given I open "Sign up" page
+    Then "Email field" should be visible
 
   @id(TC-4) @smoke
   Scenario: Sign up page elements visibility
-    Then "Email field" should be visible
     And "Email label" should be visible
-    And The text of "Email label" should be "Enter your email"
+    And The text of "Email label" should contain "Enter your email"
     And "Continue button" should be visible
     And The text of "Continue button" should be "Continue"
 

@@ -1,5 +1,5 @@
-@jira(ISG-1)
-Feature: Home navigation
+@jira(ISG-1) @epic(Navigation)
+Feature: Create navigation header for Home page
   As a GitHub user
   I want to have a navigation header on the home page
   So that I can navigate between different pages easier
@@ -31,5 +31,5 @@ Feature: Home navigation
 
     Examples:
       | navigation_element | navigated_to |
-      | Sign in button     | Sign in      |
+      | Sign in button     | Login        |
       | Sign up button     | Sign up      |

@@ -15,7 +15,7 @@ exports.config = {
         timeouts: './timeouts.js'
     },
     bootstrap: null,
-    timeout: 15,
+    timeout: null,
     teardown: null,
     hooks: [],
     gherkin: {

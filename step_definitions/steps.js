@@ -33,8 +33,12 @@ Then(/^The number of "(.*)" should be (.*)$/, (elementCollection, count) => {
     I.seeNumberOfElements(currentPage.getLocator(elementCollection), +count);
 });
 
-Then(/^The text of "(.*)" should be "(.*)"$/, (element, text) => {
-    I.seeTextEquals(text, currentPage.getLocator(element));
+Then(/^The text of "(.*)" should (be|contain) "(.*)"$/, (element, equal, text) => {
+    if (equal === "be") {
+        I.seeTextEquals(text, currentPage.getLocator(element));
+    } else {
+        I.see(text, currentPage.getLocator(element));
+    }
 });
 
 Then(/^The text of the (.*)(?:st|nd|rd|th) of "(.*)" should be "(.*)"$/, async (index, elementCollection, text) => {

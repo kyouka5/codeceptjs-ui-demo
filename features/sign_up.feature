@@ -1,8 +1,8 @@
 @jira(ISG-2)
 Feature: Sign up
   As a GitHub user
-  I want to be able to register
-  So that I can access more functionalities
+  I want to be able to enter my email address on the Sign up page
+  So that I can register
 
   Background:
     Given I open "Sign up" page

@@ -21,3 +21,8 @@ Run only the tests marked with `@current` tag:
 ```shell
 npm run codeceptjs:current
 ```
+
+View Allure report:
+```shell
+allure serve output
+```

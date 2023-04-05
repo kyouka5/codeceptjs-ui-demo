@@ -1,3 +1,3 @@
 module.exports = {
-    ELEMENT_LOADING_TIMEOUT: 15
-}
+  ELEMENT_LOADING_TIMEOUT: 15,
+};

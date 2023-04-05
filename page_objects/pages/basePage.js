@@ -1,12 +1,12 @@
 class BasePage {
-    constructor() {
-        this.url = null;
-        this.elements = null;
-    }
+  constructor() {
+    this.url = null;
+    this.elements = null;
+  }
 
-    getLocator(element) {
-        return this.elements[element];
-    }
+  getLocator(element) {
+    return this.elements[element];
+  }
 }
 
 module.exports = BasePage;

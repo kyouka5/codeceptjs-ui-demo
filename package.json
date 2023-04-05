@@ -11,7 +11,8 @@
     "codeceptjs:demo": "codeceptjs run --steps -c node_modules/@codeceptjs/examples",
     "codeceptjs:demo:headless": "HEADLESS=true codeceptjs run --steps -c node_modules/@codeceptjs/examples",
     "codeceptjs:demo:ui": "codecept-ui --app  -c node_modules/@codeceptjs/examples",
-    "lint": "npx eslint --fix ."
+    "lint": "npx eslint --fix .",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "eslint": "^8.2.0",
-    "eslint-config-airbnb": "^19.0.4"
+    "eslint-config-airbnb": "^19.0.4",
+    "husky": "^8.0.3"
   }
 }

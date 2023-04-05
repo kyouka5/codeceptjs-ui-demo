@@ -10,19 +10,22 @@
     "codeceptjs:ui": "codecept-ui --app --steps",
     "codeceptjs:demo": "codeceptjs run --steps -c node_modules/@codeceptjs/examples",
     "codeceptjs:demo:headless": "HEADLESS=true codeceptjs run --steps -c node_modules/@codeceptjs/examples",
-    "codeceptjs:demo:ui": "codecept-ui --app  -c node_modules/@codeceptjs/examples"
+    "codeceptjs:demo:ui": "codecept-ui --app  -c node_modules/@codeceptjs/examples",
+    "lint": "npx eslint --fix ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "@codeceptjs/allure-legacy": "^1.0.2",
     "@codeceptjs/configure": "^0.10.0",
     "@codeceptjs/examples": "^1.2.1",
     "@codeceptjs/ui": "^0.4.7",
     "codeceptjs": "^3.3.7",
-    "eslint": "^8.2.0",
-    "eslint-config-airbnb": "^19.0.4",
     "playwright": "^1.30.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4"
   }
 }

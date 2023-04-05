@@ -1,4 +1,7 @@
 const assert = require('assert');
+const {
+  Given, When, Then, inject,
+} = require('codeceptjs');
 
 const { I, pages, timeouts } = inject();
 
@@ -52,7 +55,8 @@ Then(/^I should be on "(.*)" page$/, (page) => {
   currentPage = pages[page];
 });
 
-// TODO: Right now, this step only works with CSS selectors. Figure out a solution to be able to handle XPath as well
+// TODO: Right now, this step only works with CSS selectors.
+// Figure out a solution to be able to handle XPath as well
 Then(/^"(.*)" should be (disabled|enabled)$/, (element, actualState) => {
   const states = {
     disabled: '[disabled]',

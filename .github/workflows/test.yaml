@@ -27,6 +27,9 @@ jobs:
       - name: Install project
         run: npm install
 
+      - name: Install latest browsers
+        run: npx playwright install
+
       - name: Run tests
         run: |
           npx codeceptjs run --override '{"helpers": {"Playwright": {"show": false}}}' --plugins "allure,retryFailedStep"

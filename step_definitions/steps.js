@@ -1,13 +1,10 @@
 const assert = require('assert');
-const {
-  Given, When, Then, inject,
-} = require('codeceptjs');
 
 const { I, pages, timeouts } = inject();
 
 let currentPage;
 
-Given(/^I open "(.*)" page$/, (page) => {
+When(/^I open "(.*)" page$/, (page) => {
   currentPage = pages[page];
   I.amOnPage(currentPage.url);
 });

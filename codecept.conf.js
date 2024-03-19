@@ -7,6 +7,9 @@ exports.config = {
       browser: 'chromium',
       bypassCSP: true,
     },
+    Percy: {
+      require: './percy_helper.js',
+    },
   },
   include: {
     I: './steps_file.js',
@@ -30,6 +33,10 @@ exports.config = {
     retryFailedStep: {
       enabled: true,
       defaultIgnoredSteps: [],
+    },
+    hooks: {
+      enabled: true,
+      require: './hooks.js',
     },
   },
   tests: './test/*_test.js',

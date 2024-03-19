@@ -8,7 +8,7 @@ Feature: Create navigation header for Home page
     Given I open "Home" page
     Then "Header" should be visible
 
-  @id(TC-1) @smoke
+  @id(TC-1) @smoke @visualTesting
   Scenario: Header menu items visibility
     And "Header menu items" should be visible
     And The number of "Header menu items" should be 4
